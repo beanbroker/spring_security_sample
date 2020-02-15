@@ -18,7 +18,7 @@ public class UserController {
 
     @GetMapping("/users")
     public User getUser(@AuthenticationPrincipal User user){
-        User user1 = user;
+        final User user1 = user;
         return user1;
     }
 }

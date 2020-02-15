@@ -23,22 +23,22 @@ public class SampleController {
     public void test(HttpSession httpSession){
 
         httpSession.setAttribute("uid", UUID.randomUUID().toString());
-        Object uid = httpSession.getAttribute("uid");
+        final Object uid = httpSession.getAttribute("uid");
 
 
     }
 
-    @GetMapping("/create")
+    @GetMapping("/set-up")
     public BrokerUserEntity memberJoin() {
 
-        BrokerUserEntity user = new BrokerUserEntity();
+        final BrokerUserEntity user = new BrokerUserEntity();
         user.setId(UUID.randomUUID().toString());
         user.setUserId("1234");
         user.setPassword(passwordEncoder.encode("1234"));
 
         brokerUserRepository.save(user);
 
-        BrokerUserEntity admin = new BrokerUserEntity();
+        final BrokerUserEntity admin = new BrokerUserEntity();
         admin.setId(UUID.randomUUID().toString());
         admin.setUserId("admin");
         admin.setPassword(passwordEncoder.encode("1234"));
